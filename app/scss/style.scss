@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;   
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  font-family: 'Lato', sans-serif;  
+  background-color: #202020;
+  background-image: url('/img/efe-yagiz-soysal-DGyVvAJNyPE-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30% center;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', serif;
+  margin-top: 0;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: calc(2rem + 2vw);
+}
+
+.box {
+  position: relative;
+  background-color: #3a5097;
+  color: #ffffff;
+  width: 80vw;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 12px;
+  top: 8vh;
+  left: 10vw;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
