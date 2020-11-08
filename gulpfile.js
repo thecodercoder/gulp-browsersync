@@ -8,9 +8,9 @@ const browsersync = require('browser-sync').create();
 // Sass Task
 function scssTask(){
   return src('app/scss/style.scss', { sourcemaps: true })
-      .pipe(sass())
-      .pipe(postcss([cssnano()]))
-      .pipe(dest('dist', { sourcemaps: '.' }));
+    .pipe(sass())
+    .pipe(postcss([cssnano()]))
+    .pipe(dest('dist', { sourcemaps: '.' }));
 }
 
 // JavaScript Task
@@ -20,31 +20,31 @@ function jsTask(){
     .pipe(dest('dist', { sourcemaps: '.' }));
 }
 
-// Browsersync
-function browserSyncServe(cb){
+// Browsersync Tasks
+function browsersyncServe(cb){
   browsersync.init({
     server: {
       baseDir: '.'
-    }    
+    }
   });
   cb();
 }
 
-function browserSyncReload(cb){
+function browsersyncReload(cb){
   browsersync.reload();
   cb();
 }
 
 // Watch Task
 function watchTask(){
-  watch('*.html', browserSyncReload);
-  watch(['app/**/*.scss', 'app/**/*.js'], series(scssTask, jsTask, browserSyncReload));
+  watch('*.html', browsersyncReload);
+  watch(['app/scss/**/*.scss', 'app/js/**/*.js'], series(scssTask, jsTask, browsersyncReload));
 }
 
-// Default Gulp Task
+// Default Gulp task
 exports.default = series(
   scssTask,
   jsTask,
-  browserSyncServe,
+  browsersyncServe,
   watchTask
 );
